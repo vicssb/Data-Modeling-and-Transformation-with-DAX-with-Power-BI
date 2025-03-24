@@ -19,19 +19,31 @@ This project is part of the lab [Creating a Star Schema for Sales Scenarios with
 
 The objective of this project is to demonstrate how to create a Star Schema for sales scenarios using Power BI, focusing on optimizing data modeling and improving report performance.
 
-## Project Structure
+## Modeling Process
 
-1. **Data Preparation**:
-   - Importing data from different sources.
-   - Cleaning and transforming data using Power Query.
+We will use the single **Financial Sample** table to create the dimension and fact tables of our Star Schema-based model. The process consists of creating tables based on the original table. From the copy, the columns that will compose the view of the new table will be selected.
 
-2. **Data Modeling**:
-   - Creating a Star Schema with fact and dimension tables.
-   - Defining measures and calculated columns for advanced analysis.
+### Created Tables
 
-3. **Data Visualization**:
-   - Developing interactive dashboards in Power BI.
-   - Presenting relevant insights, such as sales metrics and performance.
+1. **Financials_origem** (hidden mode – backup of the original table).
+
+2. **D_Produtos**:
+   - Columns: `ID_produto`, `Produto`, `Average Units Sold`, `Average Sales Value`, `Median Sales Value`, `Maximum Sales Value`, `Minimum Sales Value`.
+
+3. **D_Produtos_Detalhes**:
+   - Columns: `ID_produtos`, `Discount Band`, `Sale Price`, `Units Sold`, `Manufacturing Price`.
+
+4. **D_Descontos**:
+   - Columns: `ID_produto`, `Discount`, `Discount Band`.
+
+5. **D_Detalhes**:
+   - Columns: (*additional details to be defined*).
+
+6. **D_Calendário**:
+   - Created using DAX with the `CALENDAR()` function.
+
+7. **F_Vendas**:
+   - Columns: `SK_ID`, `ID_Produto`, `Produto`, `Units Sold`, `Sales Price`, `Discount Band`, `Segment`, `Country`, `Salers`, `Profit`, `Date`.
 
 ## Tools Used
 

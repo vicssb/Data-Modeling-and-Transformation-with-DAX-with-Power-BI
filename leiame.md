@@ -19,19 +19,31 @@ Este projeto faz parte do laboratório [Criando um Star Schema para Cenários de
 
 O objetivo deste projeto é demonstrar como criar um Star Schema para cenários de vendas utilizando Power BI, com foco em otimizar a modelagem de dados e melhorar a performance de relatórios.
 
-## Estrutura do Projeto
+## Processo de Modelagem
 
-1. **Preparação de Dados**:
-   - Importação de dados de diferentes fontes.
-   - Limpeza e transformação dos dados utilizando o Power Query.
+Utilizaremos a tabela única **Financial Sample** para criar as tabelas dimensão e fato do nosso modelo baseado em Star Schema. O processo consiste na criação das tabelas com base na tabela original. A partir da cópia, serão selecionadas as colunas que irão compor a visão da nova tabela.
 
-2. **Modelagem de Dados**:
-   - Criação de um Star Schema com tabelas fato e dimensões.
-   - Definição de medidas e colunas calculadas para análises avançadas.
+### Tabelas Criadas
 
-3. **Visualização de Dados**:
-   - Desenvolvimento de dashboards interativos no Power BI.
-   - Apresentação de insights relevantes, como métricas de vendas e desempenho.
+1. **Financials_origem** (modo oculto – backup da tabela original).
+
+2. **D_Produtos**:
+   - Colunas: `ID_produto`, `Produto`, `Média de Unidades Vendidas`, `Médias do Valor de Vendas`, `Mediana do Valor de Vendas`, `Valor Máximo de Venda`, `Valor Mínimo de Venda`.
+
+3. **D_Produtos_Detalhes**:
+   - Colunas: `ID_produtos`, `Discount Band`, `Sale Price`, `Units Sold`, `Manufactoring Price`.
+
+4. **D_Descontos**:
+   - Colunas: `ID_produto`, `Discount`, `Discount Band`.
+
+5. **D_Detalhes**:
+   - Colunas: (*detalhes adicionais a serem definidos*).
+
+6. **D_Calendário**:
+   - Criada por DAX com a função `CALENDAR()`.
+
+7. **F_Vendas**:
+   - Colunas: `SK_ID`, `ID_Produto`, `Produto`, `Units Sold`, `Sales Price`, `Discount Band`, `Segment`, `Country`, `Salers`, `Profit`, `Date`.
 
 ## Ferramentas Utilizadas
 
